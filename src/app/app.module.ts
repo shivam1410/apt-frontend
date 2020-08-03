@@ -10,6 +10,10 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './service/auth.service';
 
+//material
+import {MatIconModule} from '@angular/material/icon';
+
+
 
 @NgModule({
   declarations: [
@@ -23,6 +27,8 @@ import { AuthService } from './service/auth.service';
     CommonModule,
     FormsModule, ReactiveFormsModule,
     HttpClientModule,
+    //material
+    MatIconModule,
   ],
   providers: [
     AuthService,

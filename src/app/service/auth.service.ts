@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders, HttpParams  } from '@angular/common/http';
 })
 export class AuthService {
 
-  $URL = 'http://localhost:8000/';
+  $URL = 'https://apt-b.herokuapp.com/';
   auth;
   constructor(
     private http: HttpClient,
@@ -15,7 +15,9 @@ export class AuthService {
   }
 
   isAuthenticated(){
-    return this.auth;
+    if(this.getToken())
+      return true;
+    else return false;
   }
 
   login(email, passwd){
@@ -23,4 +25,14 @@ export class AuthService {
 
     return this.http.post(`${this.$URL}login?email=${email}&password=${passwd}`,{headers: header})
   }
+
+  logout(){
+    this.rmToken();
+  }
+  setToken = (token) => {return window.localStorage.setItem('token',token)};
+
+  rmToken = () => {return window.localStorage.removeItem('token')};
+
+  getToken = () => {return window.localStorage.getItem('token')};
+
 }

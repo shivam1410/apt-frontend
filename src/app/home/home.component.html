@@ -1,44 +1,39 @@
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<nav style="height: 7%;" class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Li-Fi</a>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+  <div class="ml-auto d-flex" [matMenuTriggerFor]="menu">
+    <mat-icon aria-hidden="false" aria-label="Example home icon">
+      account_circle
+    </mat-icon>
+    <span> shivam</span>
+    
+      <mat-icon>keyboard_arrow_down</mat-icon>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>power_settings_new</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
   </div>
+  <!-- <button type="button" mat-button (click)="drawer.toggle()"> Sidenav toggle</button> -->
 </nav>
 
 <!-- Side navigation -->
-<div class="sidenav">
-  <a href="#">About</a>
-  <a href="#">Services</a>
-  <a href="#">Clients</a>
-  <a href="#">Contact</a>
+<div class="d-flex" style="height: 93%;">
+  <aside class="sidenav">
+    <a [routerLink]="['sleep']">Sleep</a>
+    <a [routerLink]="['reading']">Reading</a>
+  </aside>
+    <!-- <mat-drawer-container class="example-container">
+      <mat-drawer #drawer [mode]="over" class="example-sidenav d-flex flex-column" mode="side">
+        <p>Auto-resizing sidenav</p>
+        <div [routerLink]="['sleep']">Sleep</div>
+        <div [routerLink]="['reading']">Reading</div>
+      </mat-drawer>
+    
+    </mat-drawer-container> -->
+  <div>
+    <router-outlet></router-outlet>
+  </div>
 </div>

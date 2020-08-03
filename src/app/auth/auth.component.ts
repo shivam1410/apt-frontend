@@ -30,6 +30,7 @@ export class AuthComponent implements OnInit {
       console.log(d);
       if(d['check'] == true ){
         this.auth.auth = true;
+        this.auth.setToken(d[name])
         this.router.navigate(['/home'],{queryParams: {'name': d[name]}})
       }
     },e=>{
